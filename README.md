@@ -7,7 +7,7 @@ It supports TeleOp driving, intake, flywheel shooter, ring pusher servo, climber
 
 The project is written using the FTC SDK and is compatible with Android Studio and REV Control Hub + Expansion Hub hardware.
 
-Hardware Requirements
+# Hardware Requirements
 Control System
 
 REV Control Hub
@@ -36,18 +36,26 @@ Required Hardware Configuration (Exact Names)
 
 ⚠️ Names are case-sensitive and must match exactly
 
-Motors
-Device Name	Type
-FrontLeft	GoBILDA 5202/3/4
-FrontRight	GoBILDA 5202/3/4
-BackLeft	GoBILDA 5202/3/4
-BackRight	GoBILDA 5202/3/4
-Intake	GoBILDA 5202/3/4
-Shooter	GoBILDA 5202/3/4 (encoder used)
-Climb	GoBILDA 5202/3/4
-Servo
-Device Name	Type
-hold	Standard Servo (NOT CRServo)
+# Motors
+Device      Name	    Type
+FrontLeft	  GoBILDA   5202/3/4
+
+FrontRight  GoBILDA   5202/3/4
+
+BackLeft	  GoBILDA   5202/3/4
+
+BackRight	  GoBILDA   5202/3/4
+
+Intake	    GoBILDA   5202/3/4
+
+Shooter	    GoBILDA   5202/3/4 (encoder used)
+
+Climb	      GoBILDA   5202/3/4
+
+# Servo
+Device       Name	      Type
+hold         Standard   Servo (NOT CRServo)
+
 OpModes Included
 TeleOp
 
