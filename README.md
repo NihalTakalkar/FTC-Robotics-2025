@@ -36,9 +36,7 @@ Ring pusher / holder
 | Device | Name | Type |
 | ------ | ---- | ---- |
 | FrontLeft | GoBILDA | 5202/3/4 |
-
-FrontRight  GoBILDA   5202/3/4
-
+| FrontRight | GoBILDA | 5202/3/4 |
 BackLeft	  GoBILDA   5202/3/4
 
 BackRight	  GoBILDA   5202/3/4
