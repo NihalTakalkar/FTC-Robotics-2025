@@ -46,6 +46,7 @@ The project is written using the FTC SDK and is compatible with Android Studio a
 
 ## Servo
 | Device | Name | Type |
+| ----- | ---- | ---- |
 | hold | Standard | Servo (NOT CRServo) |
 
 OpModes Included
