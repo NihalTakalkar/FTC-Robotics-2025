@@ -45,8 +45,8 @@ The project is written using the FTC SDK and is compatible with Android Studio a
 | Climb | GoBILDA | 5202/3/4 |
 
 ## Servo
-Device       Name	      Type
-hold         Standard   Servo (NOT CRServo)
+| Device | Name | Type |
+| hold | Standard | Servo (NOT CRServo) |
 
 OpModes Included
 TeleOp
