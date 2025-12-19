@@ -33,8 +33,9 @@ Servo
 Ring pusher / holder
 
 # Motors
-Device      Name	    Type
-FrontLeft	  GoBILDA   5202/3/4
+| Device | Name | Type |
+| ------ | ---- | ---- |
+| FrontLeft | GoBILDA | 5202/3/4 |
 
 FrontRight  GoBILDA   5202/3/4
 
