@@ -68,7 +68,7 @@ All autonomous routines are time-based and open-loop (no encoders for driving).
 
 ## Driver Controls (TeleOp)
 
-#### Driving (Mecanum)
+### Driving (Mecanum)
 
 - **Left Stick X** → Strafe left/right
 
@@ -78,7 +78,7 @@ All autonomous routines are time-based and open-loop (no encoders for driving).
 
 - **Right Stick X** → Rotate robot
 
-#### Intake + Ring Pusher
+### Intake + Ring Pusher
 
 - **X Button** → Intake IN + servo to 0.5 (load position)
 
@@ -90,7 +90,7 @@ All autonomous routines are time-based and open-loop (no encoders for driving).
 
 - Servo defaults to 0.7 when not pressing X
 
-#### Shooter (Flywheels)
+### Shooter (Flywheels)
 
 - **A Button** → Toggle shooter ON/OFF
 
@@ -98,7 +98,7 @@ All autonomous routines are time-based and open-loop (no encoders for driving).
 
 - Target velocity ≈ 1500 ticks/sec
 
-#### Climb
+### Climb
 
 - **D-Pad Up** → Climb UP
 
