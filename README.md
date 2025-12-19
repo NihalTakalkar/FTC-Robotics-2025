@@ -13,7 +13,7 @@ The project is written using the FTC SDK and is compatible with Android Studio a
 
 - REV Control Hub
 
-- REV Expansion Hub (connected via RS485)
+- REV Expansion Hub
 
 ### Motors
 
