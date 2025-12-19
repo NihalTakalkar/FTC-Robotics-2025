@@ -1,4 +1,4 @@
-# FTC-Robotics-2025
+# FTC Robotics 2025
 
 Overview
 
@@ -16,9 +16,9 @@ REV Expansion Hub (connected via RS485)
 
 Motors
 
-GoBILDA 5202/3/4 Series DC Motors (with encoders)
+- GoBILDA 5202/3/4 Series DC Motors (with encoders)
 
-4× drivetrain (mecanum)
+  4× drivetrain (mecanum)
 
 1× intake
 
@@ -31,10 +31,6 @@ Servo
 1× Standard positional servo
 
 Ring pusher / holder
-
-Required Hardware Configuration (Exact Names)
-
-⚠️ Names are case-sensitive and must match exactly
 
 # Motors
 Device      Name	    Type
