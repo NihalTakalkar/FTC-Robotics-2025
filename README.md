@@ -37,15 +37,11 @@ Ring pusher / holder
 | ------ | ---- | ---- |
 | FrontLeft | GoBILDA | 5202/3/4 |
 | FrontRight | GoBILDA | 5202/3/4 |
-BackLeft	  GoBILDA   5202/3/4
-
-BackRight	  GoBILDA   5202/3/4
-
-Intake	    GoBILDA   5202/3/4
-
-Shooter	    GoBILDA   5202/3/4 (encoder used)
-
-Climb	      GoBILDA   5202/3/4
+| BackLeft | GoBILDA | 5202/3/4 |
+| BackRight | GoBILDA | 5202/3/4 |
+| Intake | GoBILDA | 5202/3/4 |
+| Shooter | GoBILDA | 5202/3/4 (encoder used) |
+| Climb | GoBILDA | 5202/3/4 |
 
 # Servo
 Device       Name	      Type
