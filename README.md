@@ -7,32 +7,33 @@ It supports TeleOp driving, intake, flywheel shooter, ring pusher servo, climber
 
 The project is written using the FTC SDK and is compatible with Android Studio and REV Control Hub + Expansion Hub hardware.
 
-# Hardware Requirements
-Control System
+## Hardware Requirements
 
-REV Control Hub
+### Control System
 
-REV Expansion Hub (connected via RS485)
+- REV Control Hub
 
-Motors
+- REV Expansion Hub (connected via RS485)
+
+### Motors
 
 - GoBILDA 5202/3/4 Series DC Motors (with encoders)
 
-  4× drivetrain (mecanum)
+  - 4× drivetrain (mecanum)
 
-1× intake
+  - 1× intake
 
-2× shooter (left shooter uses encoder)
+  - 2× shooter (left shooter uses encoder)
 
-1× climb
+  - 1× climb
 
-Servo
+### Servo
 
-1× Standard positional servo
+- 1× Standard positional servo
 
-Ring pusher / holder
+  - Ring pusher / holder
 
-# Motors
+## Motors
 | Device | Name | Type |
 | ------ | ---- | ---- |
 | FrontLeft | GoBILDA | 5202/3/4 |
@@ -43,7 +44,7 @@ Ring pusher / holder
 | Shooter | GoBILDA | 5202/3/4 (encoder used) |
 | Climb | GoBILDA | 5202/3/4 |
 
-# Servo
+## Servo
 Device       Name	      Type
 hold         Standard   Servo (NOT CRServo)
 
