@@ -49,88 +49,91 @@ The project is written using the FTC SDK and is compatible with Android Studio a
 | ----- | ---- | ---- |
 | hold | Standard | Servo (NOT CRServo) |
 
-OpModes Included
-TeleOp
+## OpModes Included
 
-SWYFT_Ri3d
+### TeleOp
+
+- SWYFT_Ri3d
 Full driver-controlled mode with mecanum drive, intake, shooter, servo, and climb.
 
-Autonomous
+### Autonomous
 
-SWYFT Auto Long Blue
+- SWYFT Auto Long Blue
 
-SWYFT Auto Long Red
+- SWYFT Auto Long Red
 
-SWYFT Auto Short
+- SWYFT Auto Short
 
 All autonomous routines are time-based and open-loop (no encoders for driving).
 
-Driver Controls (TeleOp)
-🚗 Driving (Mecanum)
+## Driver Controls (TeleOp)
 
-Left Stick X → Strafe left/right
+#### Driving (Mecanum)
 
-Left Stick Y → Forward/back
+- **Left Stick X** → Strafe left/right
 
-Right Stick Y → Forward/back (adds with left stick Y)
+- **Left Stick Y** → Forward/back
 
-Right Stick X → Rotate robot
+- **Right Stick Y** → Forward/back (adds with left stick Y)
 
-🍴 Intake + Ring Pusher
+- **Right Stick X** → Rotate robot
 
-X Button → Intake IN + servo to 0.5 (load position)
+#### Intake + Ring Pusher
 
-Right Trigger → Intake IN (servo unchanged)
+- **X Button** → Intake IN + servo to 0.5 (load position)
 
-Left Trigger → Intake OUT
+- **Right Trigger** → Intake IN (servo unchanged)
 
-No input → Intake OFF
+- **Left Trigger** → Intake OUT
 
-Servo defaults to 0.7 when not pressing X
+- **No input** → Intake OFF
 
-🎯 Shooter (Flywheels)
+- Servo defaults to 0.7 when not pressing X
 
-A Button → Toggle shooter ON/OFF
+#### Shooter (Flywheels)
 
-Shooter uses bang-bang velocity control
+- **A Button** → Toggle shooter ON/OFF
 
-Target velocity ≈ 1500 ticks/sec
+- Shooter uses bang-bang velocity control
 
-🧗 Climb
+- Target velocity ≈ 1500 ticks/sec
 
-D-Pad Up → Climb UP
+#### Climb
 
-D-Pad Down → Climb DOWN
+- **D-Pad Up** → Climb UP
 
-Neutral → Climb OFF
+- **D-Pad Down** → Climb DOWN
 
-Shooter Control Notes
+- **Neutral** → Climb OFF
 
-ShooterL is configured as DcMotorEx and uses encoder velocity.
+## Shooter Control Notes
 
-Bang-bang control alternates between:
+- Shooter is configured as DcMotorEx and uses encoder velocity.
 
-Full power (spin-up)
+- Bang-bang control alternates between:
 
-Holding power (maintain RPM)
+  - Full power (spin-up)
 
-Shooter motors must be mounted with opposite directions set in code.
+  - Holding power (maintain RPM)
 
-Autonomous Behavior Summary
-Long Autos
+- Shooter motors must be mounted with opposite directions set in code.
 
-Drive forward
+## Autonomous Behavior Summary
 
-Turn ~45°
+### Long Autos
 
-Drive forward slightly
+1. Drive forward
 
-Run intake briefly
+2. Turn ~45°
 
-Shoot 3 rings
+3. Drive forward slightly
 
-Short Auto
+4. Run intake briefly
 
-Small backward movement
+5. Shoot 3 rings
 
-Shoot 3 rings
+### Short Auto
+
+1. Small backward movement
+
+2. Shoot 3 rings
