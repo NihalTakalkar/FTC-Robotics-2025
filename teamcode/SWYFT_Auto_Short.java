@@ -9,8 +9,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 @Autonomous(name="SWYFT Auto Short", group="Competition")
 public class SWYFT_Auto_Short extends LinearOpMode {
 
-    private DcMotor frontLeft, frontRight, backLeft, backRight, intake, shooterR;
-    private DcMotorEx shooterL;
+    private DcMotor frontLeft, frontRight, backLeft, backRight, intake;
+    private DcMotorEx shooter;
     private Servo hold;
 
     @Override
@@ -21,8 +21,7 @@ public class SWYFT_Auto_Short extends LinearOpMode {
         backLeft   = hardwareMap.get(DcMotor.class, "BackLeft");
         backRight  = hardwareMap.get(DcMotor.class, "BackRight");
         intake     = hardwareMap.get(DcMotor.class, "Intake");
-        shooterL   = hardwareMap.get(DcMotorEx.class, "ShooterL");
-        shooterR   = hardwareMap.get(DcMotor.class, "ShooterR");
+        shooter   = hardwareMap.get(DcMotorEx.class, "ShooterL");
         hold       = hardwareMap.get(Servo.class, "hold");
 
         // Motor directions
@@ -30,7 +29,6 @@ public class SWYFT_Auto_Short extends LinearOpMode {
         backLeft.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.FORWARD);
         backRight.setDirection(DcMotor.Direction.FORWARD);
-        shooterR.setDirection(DcMotor.Direction.REVERSE);
 
         hold.setPosition(0.7); // reset position
 
@@ -60,8 +58,7 @@ public class SWYFT_Auto_Short extends LinearOpMode {
     }
 
     private void shootRings(int count) {
-        shooterL.setPower(-1.0);
-        shooterR.setPower(-1.0);
+        shooter.setPower(-1.0);
         sleep(2000); // spin-up time
 
         for (int i=0; i<count; i++) {
@@ -71,7 +68,6 @@ public class SWYFT_Auto_Short extends LinearOpMode {
             sleep(500);
         }
 
-        shooterL.setPower(0);
-        shooterR.setPower(0);
+        shooter.setPower(0);
     }
 }
