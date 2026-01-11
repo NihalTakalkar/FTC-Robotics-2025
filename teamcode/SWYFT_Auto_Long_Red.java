@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 @Autonomous(name="SWYFT Auto Long Red", group="Competition")
 public class SWYFT_Auto_Long_Red extends LinearOpMode {
 
-    private DcMotor frontLeft, frontRight, backLeft, backRight, intake, shooterR;
+    private DcMotor frontLeft, frontRight, backLeft, backRight, intake;
     private DcMotorEx shooterL;
     private Servo hold;
 
@@ -21,8 +21,8 @@ public class SWYFT_Auto_Long_Red extends LinearOpMode {
         backLeft   = hardwareMap.get(DcMotor.class, "BackLeft");
         backRight  = hardwareMap.get(DcMotor.class, "BackRight");
         intake     = hardwareMap.get(DcMotor.class, "Intake");
-        shooterL   = hardwareMap.get(DcMotorEx.class, "ShooterL");
-        shooterR   = hardwareMap.get(DcMotor.class, "ShooterR");
+        shooter   = hardwareMap.get(DcMotorEx.class, "ShooterL");
+
         hold       = hardwareMap.get(Servo.class, "hold");
 
         // Motor directions
@@ -30,7 +30,6 @@ public class SWYFT_Auto_Long_Red extends LinearOpMode {
         backLeft.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.FORWARD);
         backRight.setDirection(DcMotor.Direction.FORWARD);
-        shooterR.setDirection(DcMotor.Direction.REVERSE);
 
         hold.setPosition(0.7);
 
@@ -63,6 +62,11 @@ public class SWYFT_Auto_Long_Red extends LinearOpMode {
             sleep(400);
             stopDrive();
 
+            // Activate intake to load rings
+            intake.setPower(1.0);
+            sleep(800);
+            intake.setPower(0);
+
             // Shoot 3 times
             shootRings(3);
         }
@@ -76,8 +80,7 @@ public class SWYFT_Auto_Long_Red extends LinearOpMode {
     }
 
     private void shootRings(int count) {
-        shooterL.setPower(-1.0);
-        shooterR.setPower(-1.0);
+        shooter.setPower(-1.0);
         sleep(2500);
 
         for (int i=0; i<count; i++) {
@@ -87,7 +90,6 @@ public class SWYFT_Auto_Long_Red extends LinearOpMode {
             sleep(450);
         }
 
-        shooterL.setPower(0);
-        shooterR.setPower(0);
+        shooter.setPower(0);
     }
 }
