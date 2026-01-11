@@ -21,8 +21,8 @@ public class SWYFT_Ri3d extends LinearOpMode {
 
     // Mechanism Motors
     private DcMotor intake = null;
-    private DcMotorEx shooterL = null; // Using DcMotorEx to get velocity
-    private DcMotor shooterR = null;
+    private DcMotorEx shooter = null; // Using DcMotorEx to get velocity
+
     private DcMotor climb = null;
 
     // Servos
@@ -53,8 +53,7 @@ public class SWYFT_Ri3d extends LinearOpMode {
         backRight  = hardwareMap.get(DcMotor.class, "BackRight");
 
         intake     = hardwareMap.get(DcMotor.class, "Intake");
-        shooterL   = hardwareMap.get(DcMotorEx.class, "ShooterL"); // Mapped as DcMotorEx to read encoder
-        shooterR   = hardwareMap.get(DcMotor.class, "ShooterR");
+        shooter   = hardwareMap.get(DcMotorEx.class, "Shooter"); // Mapped as DcMotorEx to read encoder
         climb      = hardwareMap.get(DcMotor.class, "Climb");
         hold       = hardwareMap.get(Servo.class, "hold");
 
@@ -63,8 +62,7 @@ public class SWYFT_Ri3d extends LinearOpMode {
         backLeft.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.FORWARD);
         backRight.setDirection(DcMotor.Direction.FORWARD);
-        shooterR.setDirection(DcMotor.Direction.REVERSE);
-        shooterL.setDirection(DcMotor.Direction.FORWARD);
+        shooter.setDirection(DcMotor.Direction.REVERSE);
         intake.setDirection(DcMotor.Direction.FORWARD);
         climb.setDirection(DcMotor.Direction.FORWARD);
 
@@ -78,12 +76,11 @@ public class SWYFT_Ri3d extends LinearOpMode {
 
         // Intake and Shooters set to FLOAT (Coast)
         intake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        shooterL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        shooterR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        shooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
         // --- ENCODER SETUP FOR SHOOTER ---
-        shooterL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        shooterL.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        shooter.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        shooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Set other motors to run without encoders
         frontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -91,7 +88,6 @@ public class SWYFT_Ri3d extends LinearOpMode {
         backLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        shooterR.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         climb.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         hold.setPosition(0.5);
@@ -128,15 +124,15 @@ public class SWYFT_Ri3d extends LinearOpMode {
             // Ring pusher
 
             if (gamepad1.x) {
-                intake.setPower(INTAKE_POWER);
+                intake.setPower(-INTAKE_POWER);
                 hold.setPosition(0.5);
             } else {
                 hold.setPosition(0.7);
 
                 if (gamepad1.right_trigger > 0.1) {
-                    intake.setPower(INTAKE_POWER);
-                } else if (gamepad1.left_trigger > 0.1) {
                     intake.setPower(-INTAKE_POWER);
+                } else if (gamepad1.left_trigger > 0.1) {
+                    intake.setPower(INTAKE_POWER);
                 }else {
                     intake.setPower(0);
                 }
@@ -152,21 +148,18 @@ public class SWYFT_Ri3d extends LinearOpMode {
 
             if (flywheelOn) {
                 // Get the current velocity from the encoded motor
-                double currentVelocity = -shooterL.getVelocity();
+                double currentVelocity = -shooter.getVelocity();
 
                 // Bang-Bang Control Logic
                 if (currentVelocity < BANG_BANG_TARGET_VELOCITY - 75) {
                     // If speed is too low, turn motors to full power
-                    shooterL.setPower(FLYWHEEL_FULL_POWER);
-                    shooterR.setPower(FLYWHEEL_FULL_POWER);
+                    shooter.setPower(FLYWHEEL_FULL_POWER);
                 } else {
                     // If speed is at or above target, turn motors off (coast)
-                    shooterL.setPower(-0.65);
-                    shooterR.setPower(-0.65);
+                    shooter.setPower(-0.65);
                 }
             } else {
-                shooterL.setPower(0);
-                shooterR.setPower(0);
+                shooter.setPower(0);
             }
 
             //----------------//
@@ -187,8 +180,8 @@ public class SWYFT_Ri3d extends LinearOpMode {
             telemetry.addData("--- Shooter ---", "");
             telemetry.addData("Flywheel Status", flywheelOn ? "ON" : "OFF");
             telemetry.addData("Target Velocity", BANG_BANG_TARGET_VELOCITY);
-            telemetry.addData("Actual Velocity", "%.2f", shooterL.getVelocity());
-            telemetry.addData("Shooter Power", "%.2f", shooterL.getPower());
+            telemetry.addData("Actual Velocity", "%.2f", shooter.getVelocity());
+            telemetry.addData("Shooter Power", "%.2f", shooter.getPower());
             telemetry.addData("Intake Power", "%.2f", intake.getPower());
             telemetry.update();
         }
